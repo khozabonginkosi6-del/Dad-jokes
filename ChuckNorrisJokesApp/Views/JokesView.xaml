@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ChuckNorrisJokesApp.Views.JokesView"
+    Title="Jokes"
+    BackgroundColor="#F5F3F8">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="22"
+            Spacing="22">
+
+            <VerticalStackLayout
+                Spacing="8"
+                Margin="0,25,0,10">
+
+                <Label
+                    Text=""
+                    FontSize="55"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label
+                    Text="LAUGH OUT LOUD!"
+                    FontSize="27"
+                    FontAttributes="Bold"
+                    TextColor="#800020"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label
+                    Text="Your daily dose of jokes and laughter"
+                    FontSize="14"
+                    TextColor="#77717D"
+                    HorizontalTextAlignment="Center"/>
+
+            </VerticalStackLayout>
+
+            <Label
+                Text="Chuck Norris Joke"
+                FontSize="19"
+                FontAttributes="Bold"
+                TextColor="#800020"/>
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E7DCE2"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="22"
+                MinimumHeightRequest="140">
+
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#800020"
+                        Offset="0,4"
+                        Radius="10"
+                        Opacity="0.12"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <Label
+                        Text=""
+                        FontSize="28"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label
+                        Text="{Binding ChuckNorrisJoke}"
+                        FontSize="16"
+                        TextColor="#333333"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Label
+                Text="Dad Joke"
+                FontSize="19"
+                FontAttributes="Bold"
+                TextColor="#9C7200"/>
+
+            <Border
+                BackgroundColor="White"
+                Stroke="#E9DDB8"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 18"
+                Padding="22"
+                MinimumHeightRequest="140">
+
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#B8860B"
+                        Offset="0,4"
+                        Radius="10"
+                        Opacity="0.12"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <Label
+                        Text=""
+                        FontSize="28"
+                        HorizontalTextAlignment="Center"/>
+
+                    <Label
+                        Text="{Binding DadJoke}"
+                        FontSize="16"
+                        TextColor="#333333"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <VerticalStackLayout
+                Spacing="8"
+                Margin="0,5,0,0">
+
+                <ActivityIndicator
+                    IsRunning="{Binding IsLoading}"
+                    IsVisible="{Binding IsLoading}"
+                    Color="#800020"
+                    HeightRequest="35"/>
+
+                <Label
+                    Text="Getting your jokes ready..."
+                    IsVisible="{Binding IsLoading}"
+                    FontSize="13"
+                    TextColor="#800020"
+                    HorizontalTextAlignment="Center"/>
+
+            </VerticalStackLayout>
+
+            <Button
+                Text="GET NEW JOKES"
+                Command="{Binding GetJokeCommand}"
+                IsEnabled="{Binding IsNotLoading}"
+                BackgroundColor="#800020"
+                TextColor="#FFFFFF"
+                FontSize="17"
+                FontAttributes="Bold"
+                CornerRadius="16"
+                HeightRequest="58"
+                Margin="0,5,0,15"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
